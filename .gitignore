@@ -5,3 +5,25 @@ dist
 
 # Ignore the output video from Git but not videos you import into src/.
 out
+
+# 参考视频素材（体积大，仅本地参考，不参与渲染）
+References/
+
+# 渲染/调试产生的临时文件与日志
+.tmp/
+*.log
+durations.txt
+
+# ── 以下为「公开仓库不发布」的个人内容 ──────────────────────────
+# 本仓库公开（GitHub），但声音样本、克隆配音、教学原件不入库：
+#   1) 声音克隆参考音频可被用来复刻本人的音色
+#   2) 克隆配音是本人的声音
+#   3) input/ 是课程研修原件
+# 需要这些文件时从本机单独拷贝，或用 tts_cli.py 重新生成本地音频。
+input/
+public/*/vo/
+effects/*/audio/*.wav
+effects/*/audio/*.mp3
+effects/*/audio/*.m4a
+effects/*/audio/ref_*.txt
+effects/*/audio/measure.txt

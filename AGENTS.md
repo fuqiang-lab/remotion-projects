@@ -85,7 +85,7 @@ npx remotion render <CompId> out/<name>.mp4
 | `Error opening output ...\react-motion-renderXXX\pre-encode.mp4: Permission denied` | 系统 `TEMP` 指向不可写目录 | 渲染前 `New-Item -ItemType Directory -Force out\.tmp` 并 `$env:TEMP=$env:TMP=(Resolve-Path out\.tmp).Path`，再执行 render |
 | 渲染报错但 `still` 单帧正常 | 单帧不走 ffmpeg 合成 | 用 `--frames=0-299` 先渲 10 秒样本验证音视频，再整片导出 |
 | 终端打印中文变成乱码 | Windows 控制台是 GBK | 脚本**写 UTF-8 文件**再 `Get-Content -Encoding UTF8`；不要靠 `print` 看中文 |
-| 按部署手册 `git clone` 到新机器，**作品在但配音没了** | 这是**有意设计**：公开仓库（`github.com/masquerator-coder/remotion-projects`）排除了 `References/`、`input/`、`effects/*/audio/`、`public/*/vo/`——声音样本可被用来复刻本人音色 | 只要代码/文档 → clone 即可；要**带声音渲染** → 从源机拷回 `public/<作品>/vo/` 与 `effects/<作品>/audio/`，或用本机 Qwen3-TTS 重生成。需要完整环境时用 robocopy 打包迁移（排除 `node_modules`、`out`、`dist`、`.git`、`References`），迁完用 `npx remotion compositions` 对账，**两边都应是 7 个** |
+| 按部署手册 `git clone` 到新机器，**作品在但配音没了** | 这是**有意设计**：公开仓库（`github.com/fuqiang-lab/remotion-projects`）排除了 `References/`、`input/`、`effects/*/audio/`、`public/*/vo/`——声音样本可被用来复刻本人音色 | 只要代码/文档 → clone 即可；要**带声音渲染** → 从源机拷回 `public/<作品>/vo/` 与 `effects/<作品>/audio/`，或用本机 Qwen3-TTS 重生成。需要完整环境时用 robocopy 打包迁移（排除 `node_modules`、`out`、`dist`、`.git`、`References`），迁完用 `npx remotion compositions` 对账，**两边都应是 7 个** |
 
 ### B. 布局 / 版式（均已踩过并修复）
 
